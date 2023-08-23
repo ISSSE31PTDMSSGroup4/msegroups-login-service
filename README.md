@@ -6,3 +6,4 @@ To run:
 2. python3 app/app.py
 
 It is however recommended to use it together with pepm_compose
+environment variables should not be committed into source files, will provide if requested
