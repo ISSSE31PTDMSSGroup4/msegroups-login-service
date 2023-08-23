@@ -1,6 +1,6 @@
 import requests
 from requests.auth import HTTPBasicAuth
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, render_template_string, session, redirect, request, url_for, make_response, abort
 from . import config
 import flask_login
@@ -121,8 +121,8 @@ def callback():
     #now the user is logged in
     #set cookie so frontend knows that user is logged in
     resp = make_response(redirect('/'))
-    resp.set_cookie("csrf_js", session['csrf_state'], expires=datetime.utcnow()+86400, httponly=False)
-    resp.set_cookie("authenticated","true", expires=datetime.utcnow()+86400, httponly=False)
+    resp.set_cookie("csrf_js", session['csrf_state'], expires=datetime.utcnow()+ timedelta(hours=24), httponly=False)
+    resp.set_cookie("authenticated","true", expires=datetime.utcnow()+ timedelta(hours=24), httponly=False)
     return resp
 
 
