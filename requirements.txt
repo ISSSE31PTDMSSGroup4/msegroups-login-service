@@ -1,0 +1,5 @@
+Flask
+jose
+Flask-Login
+gunicorn
+requests
